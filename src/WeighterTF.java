@@ -7,6 +7,7 @@ public class WeighterTF {
 	
 	public WeighterTF(Index index){
 		this.index = index;
+		docs = new HashMap<String, HashMap<String, Double>>();
 		for(String idDoc : index.getDocs().keySet()){
 			HashMap<String, Double> motFreq = new HashMap<String, Double>();
 			HashMap<String, Integer>motOccurences = index.getTfsForDoc(idDoc);
@@ -21,7 +22,7 @@ public class WeighterTF {
 		}
 	}
 	
-	public HashMap<String, Double> geMotsFreq(String idDoc){
+	public HashMap<String, Double> getMotPoid(String idDoc){
 		return docs.get(idDoc);
 	}
 }

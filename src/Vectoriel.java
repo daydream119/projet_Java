@@ -3,14 +3,12 @@ import java.util.HashMap;
 import indexation.Index;
 
 public abstract class Vectoriel extends IRModel{
-	protected WeighterTF poids;
 	
-	public Vectoriel(Index index, WeighterTF w) {
+	public Vectoriel(Index index) {
 		super(index);
-		poids = w;
 	}
 	
-	public HashMap<String, Double> queryFrequences(HashMap<String, Integer> queryProcessed){
+	public HashMap<String, Double> queryPoid(HashMap<String, Integer> queryProcessed){
 		HashMap<String, Double>qFreq = new HashMap<String, Double>();
 		int sum = 0;
 		for(int occ : queryProcessed.values()){
