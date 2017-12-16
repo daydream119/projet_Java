@@ -9,12 +9,12 @@ public class TestIndexation {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		Index idx = Index.deserialize("index1");
 		Document dc = idx.getDoc("55");
-		System.out.println(dc.getText());
+//		System.out.println(dc.getText());
 		
-		HashMap<String, Integer> hm1 = idx.getTfsForDoc("55");
-		for(String word : hm1.keySet()){
-			System.out.println("l'occurence de mot "+word+" est "+hm1.get(word));
-		}
+//		HashMap<String, Integer> hm1 = idx.getTfsForDoc("55");
+//		for(String word : hm1.keySet()){
+//			System.out.println("l'occurence de mot "+word+" est "+hm1.get(word));
+//		}
 //		
 //		HashMap<String, Integer> hm2 = idx.getTfsForStem("attempt");
 //		for(String document : hm2.keySet()){
