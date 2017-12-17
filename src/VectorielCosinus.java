@@ -1,6 +1,4 @@
 import java.util.HashMap;
-
-import core.Document;
 import indexation.Index;
 
 public class VectorielCosinus extends Vectoriel {
@@ -11,13 +9,6 @@ public class VectorielCosinus extends Vectoriel {
 		poids = w;
 	}
 	
-	public int Getnbresult(Document doc){
-		String s="";
-		for(String query:index.getTfsForDoc(doc.getId()).keySet()){
-			s+=" "+ query;
-		}
-		return runModel(s).size();
-	}
 	@Override
 	protected HashMap<String, Double> getDocScores(HashMap<String, Integer> queryProcessed) {
 		HashMap<String, Double> res = new HashMap<String, Double>();

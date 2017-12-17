@@ -26,7 +26,7 @@ public class Evaluation {
 		listAttendu = att.idDocsAttenduToAL(query);
 	}
 	
-	//initialiser DN par rapport une requete donn¨¦e (n premiers resultats qui est plus importants au niveau de score)
+	//initialiser DN par rapport ¨¤ une requete donn¨¦e(n premiers resultats qui est plus importants au niveau de score)
 	public void setlistDN(String query){
 		// res contenant les r¨¦sultats trouv¨¦s tri¨¦s en fonction de score
 		LinkedHashMap<String, Double> res = model.runModel(query);
