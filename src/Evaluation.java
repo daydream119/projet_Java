@@ -35,6 +35,9 @@ public class Evaluation {
 			if(cpt == nb){
 				break;
 			}
+			if(res.get(idDoc) == 0.0){
+				continue;
+			}
 			listDN.add(idDoc);
 			cpt++;
 		}
