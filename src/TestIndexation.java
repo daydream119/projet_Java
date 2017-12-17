@@ -7,11 +7,10 @@ import indexation.Index;
 
 public class TestIndexation {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
-		Index idxD = Index.deserialize("index1");
 		Index idxq = Index.deserialize("indexq");
 		System.out.println(idxq.getDocs().size());
 		for(String doc: idxq.getDocs().keySet()) {
-			System.out.println("eeeeeeeeeeeee"+idxq.getTfsForDoc(doc));
+			System.out.println(idxq.getStrDoc(doc));
 		}
 		//Index idxr = Index.deserialize("indexr");
 //		Document dc = idx.getDoc("55");
@@ -47,9 +46,6 @@ public class TestIndexation {
 //		for(String id : hm7.keySet()){
 //			System.out.println("id "+id+" value "+hm7.get(id));
 //		}
-		//-------------------------------EXO3-------------------------------
-		
-		
-		
+//       -----------------------------------fin de exo1 --------------------------------------		
 	}
 }

@@ -11,7 +11,7 @@ public class Boolean extends IRModel{
 		HashMap<String, Double> res = new HashMap<String, Double>();
 		for(String idDoc : index.getDocs().keySet()){
 			boolean toutExiste = true;
-			// pour chaque mot dans la requ¨ºte
+			// pour chaque mot dans la requete
 			for(String mot : queryProcessed.keySet()){
 				boolean existe = false;
 				// pour chaque mot dans le document en cours
@@ -34,4 +34,5 @@ public class Boolean extends IRModel{
 		}
 		return res;
 	}
+
 }
