@@ -16,7 +16,7 @@ public class WeighterTF {
 				sum += occurence;
 			}
 			for(String mot : motOccurences.keySet()){
-				motFreq.put(mot, (double) (motOccurences.get(mot)/sum));
+				motFreq.put(mot,((double) motOccurences.get(mot)/(double)sum));
 			}
 			docs.put(idDoc, motFreq);
 		}

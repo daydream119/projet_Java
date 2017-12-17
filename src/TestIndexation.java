@@ -7,8 +7,14 @@ import indexation.Index;
 
 public class TestIndexation {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
-		Index idx = Index.deserialize("index1");
-		Document dc = idx.getDoc("55");
+		Index idxD = Index.deserialize("index1");
+		Index idxq = Index.deserialize("indexq");
+		System.out.println(idxq.getDocs().size());
+		for(String doc: idxq.getDocs().keySet()) {
+			System.out.println("eeeeeeeeeeeee"+idxq.getTfsForDoc(doc));
+		}
+		//Index idxr = Index.deserialize("indexr");
+//		Document dc = idx.getDoc("55");
 //		System.out.println(dc.getText());
 		
 //		HashMap<String, Integer> hm1 = idx.getTfsForDoc("55");
@@ -41,5 +47,9 @@ public class TestIndexation {
 //		for(String id : hm7.keySet()){
 //			System.out.println("id "+id+" value "+hm7.get(id));
 //		}
+		//-------------------------------EXO3-------------------------------
+		
+		
+		
 	}
 }

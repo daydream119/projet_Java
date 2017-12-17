@@ -15,7 +15,7 @@ public abstract class Vectoriel extends IRModel{
 			sum += occ;
 		}
 		for(String mot : queryProcessed.keySet()){
-			qFreq.put(mot, (double) (queryProcessed.get(mot)/sum));
+			qFreq.put(mot, ((double)queryProcessed.get(mot)/(double) sum));
 		}
 		return qFreq;
 	}

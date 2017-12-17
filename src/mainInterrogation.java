@@ -5,11 +5,20 @@ import indexation.Index;
 
 public class mainInterrogation {
 	public static void main(String[] args){
-		Index index = Index.deserialize("index1");
-		String query = "souris grise ordinateur gris";
-		IRModel mod = new Boolean(index);
-		LinkedHashMap<String, Double> res = mod.runModel(query);
-		System.out.println(res.size());
-		System.out.println(index.getDocs().size());
+		Index idxD = Index.deserialize("index1");
+		String query = "young boy" ;
+		// Modele booleen
+		IRModel mod=new Boolean (idxD) ;
+		mod.runModel(query) ;
+		
+		// Modele Ve c t o r i e l Produi t Car t e s i en avec ponde rat ion TF
+		WeighterTF wtf = new WeighterTF(idxD) ;
+		IRModel modCos = new VectorielCartesien(idxD,wtf);
+		System.out.println(modCos.runModel(query));
+		// Modele Ve c t o r i e l Cosinus avec ponde rat ion TFIDF
+		WeighterTFIDF wtfidf = new WeighterTFIDF(idxD) ;
+		//wtfidf.remplir();
+//		IRModel modCart = new VectorielCosinus(idx,wtfidf) ;
+		//System.out.println(modCart.runModel(query));
 	}
 }

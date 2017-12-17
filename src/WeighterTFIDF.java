@@ -11,15 +11,8 @@ public class WeighterTFIDF {
 		this.index = index;
 		tf = new WeighterTF(index);
 		docs = new HashMap<String, HashMap<String, Double>>();
-		for(String idDoc : index.getDocs().keySet()){
-			HashMap<String, Double> motFreq = tf.getMotPoid(idDoc);
-			HashMap<String, Double> motTFIDF = new HashMap<String, Double>();
-			for(String mot : index.getTfsForDoc(idDoc).keySet()){
-				motTFIDF.put(mot, motFreq.get(mot)*this.idf(mot));
-			}
-			docs.put(idDoc, motTFIDF);
-		}
 	}
+	
 	
 	public boolean contient(String idDoc, String mot){
 		for(String word : index.getTfsForDoc(idDoc).keySet()){
@@ -41,10 +34,27 @@ public class WeighterTFIDF {
 	}
 	
 	public double idf(String terme){
-		return Math.log((double)index.getDocs().size()/(double)this.nbDocContient(terme));
+		if(this.nbDocContient(terme)!=0){
+			return Math.log((double)index.getDocs().size()/(double)this.nbDocContient(terme));
+		}
+		return 0.0;
 	}
-	
 	public HashMap<String, Double> getMotPoid(String idDoc){
 		return docs.get(idDoc);
 	}
+	
+	
+	public void remplir(){
+		for(String idDoc : index.getDocs().keySet()){
+			System.out.println(idDoc);
+			HashMap<String, Double> motFreq = tf.getMotPoid(idDoc);
+			HashMap<String, Double> motTFIDF = new HashMap<String, Double>();
+			for(String mot : index.getTfsForDoc(idDoc).keySet()){
+				
+				motTFIDF.put(mot, motFreq.get(mot)*this.idf(mot));
+			}
+			docs.put(idDoc, motTFIDF);
+		}
+	}
+	
 }
